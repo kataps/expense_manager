@@ -28,6 +28,9 @@
 
 <script>
 
+
+
+
 import Navbar from "./navbar"
 import MainSideBar from './SideBar'
 import  ContentWrapper from './ContentWrapper'
@@ -45,9 +48,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-
-
 </style>
 <style scoped>
 .fade-enter-active,

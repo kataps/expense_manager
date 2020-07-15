@@ -39131,19 +39131,16 @@ var staticRenderFns = [
                 },
                 [
                   _c("li", { staticClass: "nav-item has-treeview menu-open" }, [
-                    _c(
-                      "a",
-                      { staticClass: "nav-link active", attrs: { href: "#" } },
-                      [
-                        _c("i", {
-                          staticClass: "nav-icon fas fa-tachometer-alt"
-                        }),
-                        _vm._v(" "),
-                        _c("p", [
-                          _c("i", { staticClass: "right fas fa-angle-left" })
-                        ])
-                      ]
-                    ),
+                    _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                      _c("i", { staticClass: "nav-icon fa fa-tachometer-alt" }),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "\n                        Expense Manager\n                        "
+                        ),
+                        _c("i", { staticClass: "right fa fa-angle-left" })
+                      ])
+                    ]),
                     _vm._v(" "),
                     _c("ul", { staticClass: "nav nav-treeview" }, [
                       _c("li", { staticClass: "nav-item" }, [
@@ -39154,7 +39151,7 @@ var staticRenderFns = [
                             attrs: { href: "#" }
                           },
                           [
-                            _c("i", { staticClass: "far fa-circle nav-icon" }),
+                            _c("i", { staticClass: "fa fa-circle nav-icon" }),
                             _vm._v(" "),
                             _c("p", [_vm._v("Active Page")])
                           ]
@@ -39166,27 +39163,10 @@ var staticRenderFns = [
                           "a",
                           { staticClass: "nav-link", attrs: { href: "#" } },
                           [
-                            _c("i", { staticClass: "far fa-circle nav-icon" }),
+                            _c("i", { staticClass: "fa fa-circle nav-icon" }),
                             _vm._v(" "),
                             _c("p", [_vm._v("Inactive Page")])
                           ]
-                        )
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item" }, [
-                    _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                      _c("i", { staticClass: "nav-icon fas fa-th" }),
-                      _vm._v(" "),
-                      _c("p", [
-                        _vm._v(
-                          "\n                        Simple Link\n                        "
-                        ),
-                        _c(
-                          "span",
-                          { staticClass: "right badge badge-danger" },
-                          [_vm._v("New")]
                         )
                       ])
                     ])
@@ -39283,7 +39263,7 @@ var staticRenderFns = [
                   staticClass: "nav-link",
                   attrs: { "data-widget": "pushmenu", href: "#" }
                 },
-                [_c("i", { staticClass: "fas fa-bars" })]
+                [_c("i", { staticClass: "fa fa-bars" })]
               )
             ]),
             _vm._v(" "),
@@ -39317,7 +39297,7 @@ var staticRenderFns = [
                 _c(
                   "button",
                   { staticClass: "btn btn-navbar", attrs: { type: "submit" } },
-                  [_c("i", { staticClass: "fas fa-search" })]
+                  [_c("i", { staticClass: "fa fa-search" })]
                 )
               ])
             ])
@@ -39372,7 +39352,7 @@ var staticRenderFns = [
                               {
                                 staticClass: "float-right text-sm text-danger"
                               },
-                              [_c("i", { staticClass: "fas fa-star" })]
+                              [_c("i", { staticClass: "fa fa-star" })]
                             )
                           ]),
                           _vm._v(" "),
@@ -39412,7 +39392,7 @@ var staticRenderFns = [
                             _c(
                               "span",
                               { staticClass: "float-right text-sm text-muted" },
-                              [_c("i", { staticClass: "fas fa-star" })]
+                              [_c("i", { staticClass: "fa fa-star" })]
                             )
                           ]),
                           _vm._v(" "),
@@ -39454,7 +39434,7 @@ var staticRenderFns = [
                               {
                                 staticClass: "float-right text-sm text-warning"
                               },
-                              [_c("i", { staticClass: "fas fa-star" })]
+                              [_c("i", { staticClass: "fa fa-star" })]
                             )
                           ]),
                           _vm._v(" "),
@@ -39520,7 +39500,7 @@ var staticRenderFns = [
                     "a",
                     { staticClass: "dropdown-item", attrs: { href: "#" } },
                     [
-                      _c("i", { staticClass: "fas fa-envelope mr-2" }),
+                      _c("i", { staticClass: "fa fa-envelope mr-2" }),
                       _vm._v(" 4 new messages\n                "),
                       _c(
                         "span",
@@ -39536,7 +39516,7 @@ var staticRenderFns = [
                     "a",
                     { staticClass: "dropdown-item", attrs: { href: "#" } },
                     [
-                      _c("i", { staticClass: "fas fa-users mr-2" }),
+                      _c("i", { staticClass: "fa fa-users mr-2" }),
                       _vm._v(" 8 friend requests\n                "),
                       _c(
                         "span",
@@ -39552,7 +39532,7 @@ var staticRenderFns = [
                     "a",
                     { staticClass: "dropdown-item", attrs: { href: "#" } },
                     [
-                      _c("i", { staticClass: "fas fa-file mr-2" }),
+                      _c("i", { staticClass: "fa fa-file mr-2" }),
                       _vm._v(" 3 new reports\n                "),
                       _c(
                         "span",
@@ -39587,7 +39567,7 @@ var staticRenderFns = [
                     href: "#"
                   }
                 },
-                [_c("i", { staticClass: "fas fa-th-large" })]
+                [_c("i", { staticClass: "fa fa-th-large" })]
               )
             ])
           ])
@@ -57037,7 +57017,7 @@ __webpack_require__.r(__webpack_exports__);
         password: this.password
       }).then(function (response) {
         _this.$router.push({
-          name: 'home'
+          name: 'dashboard'
         });
       });
     }
@@ -57061,6 +57041,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_pages_templates_Error404__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/pages/templates/Error404 */ "./resources/js/components/pages/templates/Error404.vue");
 /* harmony import */ var _components_pages_templates_cms_CmsIndex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/pages/templates/cms/CmsIndex */ "./resources/js/components/pages/templates/cms/CmsIndex.vue");
 /* harmony import */ var _components_pages_dashboard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/pages/dashboard */ "./resources/js/components/pages/dashboard.vue");
+/* harmony import */ var _storage_store__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../storage/store */ "./resources/js/storage/store.js");
 
 
 
@@ -57073,10 +57054,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var ROUTES = [{
   name: 'website',
   redirect: 'home',
   path: '/',
+  meta: {
+    requiresAuth: false
+  },
   component: {
     name: 'WebsiteTemplate',
     render: function render(c) {
@@ -57099,6 +57084,9 @@ var ROUTES = [{
     name: 'dashboard'
   },
   component: _components_pages_templates_cms_CmsIndex__WEBPACK_IMPORTED_MODULE_4__["default"],
+  meta: {
+    requiresAuth: true
+  },
   children: [{
     name: 'dashboard',
     path: 'dashboard',
@@ -57112,6 +57100,43 @@ var ROUTES = [{
 var Router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   mode: 'history',
   routes: ROUTES
+});
+Router.beforeEach(function (to, from, next) {
+  if (to.matched.some(function (record) {
+    return record.meta.requiresAuth;
+  })) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    if (!_storage_store__WEBPACK_IMPORTED_MODULE_6__["default"].getters.loggedIn) {
+      next({
+        path: '/login',
+        query: {
+          redirect: to.fullPath
+        }
+      });
+    } else {
+      next();
+    }
+  } else {
+    next(); // make sure to always call next()!
+  }
+
+  if (to.matched.some(function (record) {
+    return !record.meta.requiresAuth;
+  })) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    if (!_storage_store__WEBPACK_IMPORTED_MODULE_6__["default"].getters.loggedIn) {
+      next();
+    } else {
+      next({
+        path: '/cms' // query: { redirect: to.fullPath }
+
+      });
+    }
+  } else {
+    next(); // make sure to always call next()!
+  }
 });
 /* harmony default export */ __webpack_exports__["default"] = (Router);
 

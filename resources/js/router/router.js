@@ -14,12 +14,16 @@ import Error404 from '../components/pages/templates/Error404'
 
 import CmsTemplate from '../components/pages/templates/cms/CmsIndex'
 import Dashboard from '../components/pages/dashboard'
+import store from '../storage/store';
 
 const ROUTES = [
     {
         name:'website',
         redirect: 'home',
         path:'/',
+        meta:{
+            requiresAuth:false
+        },
         component: {
             name: 'WebsiteTemplate' ,
             render( c) { return c('router-view')}
@@ -42,6 +46,9 @@ const ROUTES = [
             path:'/cms',
             redirect: { name: 'dashboard' },
             component:CmsTemplate,
+            meta: { 
+                requiresAuth:true
+            },
             children:[
                 {
                      name: 'dashboard',
@@ -57,10 +64,40 @@ const ROUTES = [
     }
 ]
 
+
+
 const Router =  new VueRouter({
      mode: 'history',
      routes: ROUTES,
-
 })
-
+Router.beforeEach((to, from, next) => {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+      // this route requires auth, check if logged in
+      // if not, redirect to login page.
+      if (!store.getters.loggedIn) {
+        next({
+          path: '/login',
+          query: { redirect: to.fullPath }
+        })
+      } else {
+        next()
+      }
+    }else {
+        next() // make sure to always call next()!
+    }
+    if (to.matched.some(record => !record.meta.requiresAuth)) {
+        // this route requires auth, check if logged in
+        // if not, redirect to login page.
+        if (!store.getters.loggedIn) {
+            next()
+        } else {
+            next({
+                path: '/cms',
+                // query: { redirect: to.fullPath }
+             })
+        }
+      }else{
+        next() // make sure to always call next()!
+      }
+  })
 export default Router
