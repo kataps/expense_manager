@@ -8,14 +8,13 @@ import VueRouter from 'vue-router'
 
 import Home from '../components/pages/Home'
 import Login from  '../components/pages/Login'
+import Logout from '../components/pages/partials/Logout'
 import Error404 from '../components/pages/templates/Error404'
 
 /*CMS COMPONENTS*/
-
 import CmsTemplate from '../components/pages/templates/cms/CmsIndex'
 import Dashboard from '../components/pages/dashboard'
 import store from '../storage/store';
-
 const ROUTES = [
     {
         name:'website',
@@ -38,8 +37,16 @@ const ROUTES = [
                 name: 'login',
                 path: '/login',
                 component: Login,
-            }
+            },
         ]
+    },
+    {
+        name:'Logout',
+        path:'/logout',
+        component: Logout,
+        meta:{ 
+            requiresAuth:true
+        }
     },
     {
             name:'cms',
@@ -63,9 +70,6 @@ const ROUTES = [
         component: Error404
     }
 ]
-
-
-
 const Router =  new VueRouter({
      mode: 'history',
      routes: ROUTES,
