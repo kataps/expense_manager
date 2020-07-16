@@ -34,18 +34,13 @@
                         </p>
                         </a>
                         <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link active">
-                            <i class="fa fa-circle nav-icon"></i>
-                            <p>Active Page</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                            <i class="fa fa-circle nav-icon"></i>
-                            <p>Inactive Page</p>
-                            </a>
-                        </li>
+                            
+                            <li class="nav-item">
+                                <router-link :to="{ name: 'expenseCategory' }" class="nav-link"> 
+                                    <i class="fa fa-circle nav-icon"></i>
+                                    <p> Categories </p>
+                                </router-link>
+                            </li>
                         </ul>
                     </li>
                     <!-- <li class="nav-item">
