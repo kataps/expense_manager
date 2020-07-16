@@ -1,6 +1,6 @@
 <template>
     <div>
-            <div class="content-wrapper">
+            <div class="content-wrapper  p-4">
                   <router-view></router-view>
             </div>
     </div>
