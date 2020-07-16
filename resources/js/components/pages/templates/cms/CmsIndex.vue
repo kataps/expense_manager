@@ -28,14 +28,12 @@
 
 <script>
 
-
-
-
 import Navbar from "./navbar"
 import MainSideBar from './SideBar'
 import  ContentWrapper from './ContentWrapper'
 import ControlSideBar from './controlSideBar'
 import Footer from './Footer'
+
 export default {
     components : {
           Navbar,
