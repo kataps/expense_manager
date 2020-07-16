@@ -1,8 +1,6 @@
 "use strict";
-
-
 import VueRouter from 'vue-router'
-
+import store from '../storage/store';
 
 /*WEBSITE COMPONENTS*/
 
@@ -14,7 +12,10 @@ import Error404 from '../components/pages/templates/Error404'
 /*CMS COMPONENTS*/
 import CmsTemplate from '../components/pages/templates/cms/CmsIndex'
 import Dashboard from '../components/pages/dashboard'
-import store from '../storage/store';
+import ExpenseCategory from '../components/pages/ExpenseCategory'
+
+
+
 const ROUTES = [
     {
         name:'website',
@@ -33,12 +34,16 @@ const ROUTES = [
                 path:'/home',
                 component: Home,
             },
-            {
-                name: 'login',
-                path: '/login',
-                component: Login,
-            },
+           ,
         ]
+    },
+    {
+        name: 'login',
+        path: '/login',
+        component: Login,
+        meta: {
+            requiresAuth:false
+        }
     },
     {
         name:'Logout',
@@ -60,8 +65,17 @@ const ROUTES = [
                 {
                      name: 'dashboard',
                      path: 'dashboard',
-                     component: Dashboard
-                }
+                     component: Dashboard,
+                    // requiresAuth:true
+                     
+                },
+                {
+                     name: 'expenseCategory',
+                     path:'expenseCategory',
+                     component: ExpenseCategory,
+                   //  requiresAuth:true
+                },
+             
             ]
     },
     {
@@ -86,18 +100,16 @@ Router.beforeEach((to, from, next) => {
       } else {
         next()
       }
-    }else {
-        next() // make sure to always call next()!
     }
-    if (to.matched.some(record => !record.meta.requiresAuth)) {
-        // this route requires auth, check if logged in
-        // if not, redirect to login page.
+    else if (to.matched.some(record => !record.meta.requiresAuth)) {
+        // this route only requires uaunthenticated user, check if not logged in
+        // if yes, redirect to cms Dashboard page.
         if (!store.getters.loggedIn) {
             next()
         } else {
             next({
-                path: '/cms',
-                // query: { redirect: to.fullPath }
+               path: '/cms/dashboard',
+               // query: { redirect: to.fullPath }
              })
         }
       }else{
