@@ -1,27 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-
-
 use GuzzleHttp\Client;
+
+use Illuminate\Http\JsonResponse;
+
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
     //
 
-    public function  login(Request $request){
-       
+    public function  login(Request $request ) 
+    {
         request()->validate([
              'email' => 'email|required',
              'password' => 'required',
         ]);
-        
-       
         $http = new Client;
-
         try {
-
             $response = $http->post('http://localhost:8080/oauth/token', [
                 'form_params' => [
                     'grant_type' => 'password',
@@ -31,8 +28,7 @@ class AuthController extends Controller
                     'password' => $request->password,
                 ]
             ]);
-
-            return $response->getBody();
+           return $response->getBody();
 
         } catch (\GuzzleHttp\Exception\BadResponseException $e) {
                     if ($e->getCode() === 400) {
@@ -42,15 +38,13 @@ class AuthController extends Controller
              }
            return response()->json('Something went wrong on the server.', $e->getCode());
         } 
-        
     }
-    public function logout() 
+    public function logout()  
     {
-      
-       auth()->user()->tokens->each(function($token, $key){
-            $token->delete();
-       });
-       response()->json("Logout Successfully",200);
+        auth()->user()->tokens->each(function($token, $key){
+                $token->delete();
+        });
+       response()->json(['Logout Successfully'],200);
 
     }
 }

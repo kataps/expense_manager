@@ -1962,26 +1962,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      categories: null
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    this.$store.dispatch('retrieveExpenseCategories').then(function (response) {
+      _this.categories = response;
+    });
+  }
+});
 
 /***/ }),
 
@@ -2088,14 +2082,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     var _this = this;
 
     this.$store.dispatch('removeToken', {}).then(function (response) {
       _this.$router.push({
-        name: 'home'
+        name: 'website'
       });
     });
   }
@@ -38739,94 +38732,70 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "card" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _c("table", { staticClass: "table" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.categories, function(category, index) {
+              return _c("tr", { key: index }, [
+                _c("td", [_vm._v(" " + _vm._s(category.name))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(" " + _vm._s(category.createdat))]),
+                _vm._v(" "),
+                _vm._m(2, true)
+              ])
+            }),
+            0
+          )
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-header" }, [
-          _c("div", { staticClass: "dflex " }, [
-            _c("p", [_vm._v("Expense Categories")]),
-            _vm._v(" "),
-            _c("button", { staticClass: "btn btn-primary" }, [
-              _vm._v("ADD CATEGORY")
-            ])
-          ])
-        ]),
+    return _c("div", { staticClass: "card-header" }, [
+      _c("div", { staticClass: "dflex " }, [
+        _c("p", [_vm._v("Expense Categories")]),
         _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _c("table", { staticClass: "table" }, [
-            _c("thead", [
-              _c("tr", [
-                _c("th", [_vm._v("Name")]),
-                _vm._v(" "),
-                _c("th", [_vm._v("Date Created")]),
-                _vm._v(" "),
-                _c("th", [_vm._v("Action")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tbody", [
-              _c("tr", [
-                _c("td", [_vm._v("Alvin Katapusan")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" 11/13/97")]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("div", { staticClass: "dflex justify-content-between" }, [
-                    _c("button", { staticClass: "btn btn-primary" }, [
-                      _vm._v("Edit")
-                    ]),
-                    _vm._v(" "),
-                    _c("button", { staticClass: "btn btn-danger" }, [
-                      _vm._v("Delete")
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("tr", [
-                _c("td", [_vm._v("Anglica Sto. Domingo")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("11/13/97")]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("div", { staticClass: "dflex justify-content-between" }, [
-                    _c("button", { staticClass: "btn btn-success" }, [
-                      _vm._v("Edit")
-                    ]),
-                    _vm._v(" "),
-                    _c("button", { staticClass: "btn btn-danger" }, [
-                      _vm._v("Delete")
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("tr", [
-                _c("td", [_vm._v("Kataps")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("11/13/97")]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("div", { staticClass: "dflex justify-content-between" }, [
-                    _c("button", { staticClass: "btn btn-primary" }, [
-                      _vm._v("Edit")
-                    ]),
-                    _vm._v(" "),
-                    _c("button", { staticClass: "btn btn-danger" }, [
-                      _vm._v("Delete")
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ])
+        _c("button", { staticClass: "btn btn-primary" }, [
+          _vm._v("ADD CATEGORY")
         ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Date Created")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Action")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c("div", { staticClass: "dflex justify-content-between" }, [
+        _c("button", { staticClass: "btn btn-primary" }, [_vm._v("Edit")]),
+        _vm._v(" "),
+        _c("button", { staticClass: "btn btn-danger" }, [_vm._v("Delete")])
       ])
     ])
   }
@@ -57225,8 +57194,6 @@ Router.beforeEach(function (to, from, next) {
   if (to.matched.some(function (record) {
     return record.meta.requiresAuth;
   })) {
-    // this route requires auth, check if logged in
-    // if not, redirect to login page.
     if (!_storage_store__WEBPACK_IMPORTED_MODULE_1__["default"].getters.loggedIn) {
       next({
         path: '/login',
@@ -57240,8 +57207,6 @@ Router.beforeEach(function (to, from, next) {
   } else if (to.matched.some(function (record) {
     return !record.meta.requiresAuth;
   })) {
-    // this route only requires uaunthenticated user, check if not logged in
-    // if yes, redirect to cms Dashboard page.
     if (!_storage_store__WEBPACK_IMPORTED_MODULE_1__["default"].getters.loggedIn) {
       next();
     } else {
@@ -57272,7 +57237,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-var _localStorage$getItem;
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+var _localStorage$getItem, _localStorage$getItem2;
+
 
 
 
@@ -57280,7 +57248,8 @@ var _localStorage$getItem;
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
-    token: (_localStorage$getItem = localStorage.getItem('access_token')) !== null && _localStorage$getItem !== void 0 ? _localStorage$getItem : null
+    token: (_localStorage$getItem = localStorage.getItem('access_token')) !== null && _localStorage$getItem !== void 0 ? _localStorage$getItem : null,
+    refresh_token: (_localStorage$getItem2 = localStorage.getItem('refresh_token')) !== null && _localStorage$getItem2 !== void 0 ? _localStorage$getItem2 : null
   },
   getters: {
     loggedIn: function loggedIn(state) {
@@ -57290,6 +57259,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
   mutations: {
     setToken: function setToken(state, token) {
       state.token = token;
+    },
+    set_refreshToken: function set_refreshToken(state, reftoken) {
+      state.refresh_token = reftoken;
     }
   },
   actions: {
@@ -57305,8 +57277,11 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
           beforeSend: function beforeSend(request) {},
           success: function success(response) {
             var token = response.access_token;
+            var refreshToken = response.refresh_token;
             localStorage.setItem('access_token', token);
+            localStorage.setItem('refresh_token', refreshToken);
             context.commit('setToken', token);
+            context.commit('set_refreshToken', refreshToken);
             resolve(response);
           },
           error: function error(_error) {
@@ -57318,17 +57293,35 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     removeToken: function removeToken(context, data) {
       return new Promise(function (resolve, reject) {
         $.post({
-          url: 'api/logout',
+          url: '/api/logout',
           beforeSend: function beforeSend(request) {
             request.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('access_token'));
           },
           success: function success(response) {
             localStorage.removeItem('access_token');
+            localStorage.removeItem('refresh_token');
+            context.commit('set_refreshToken', null);
             context.commit('setToken', null);
             resolve(response);
           },
           error: function error(_error2) {
             reject(_error2);
+          }
+        });
+      });
+    },
+    retrieveExpenseCategories: function retrieveExpenseCategories() {
+      return new Promise(function (resolve, reject) {
+        $.get({
+          url: '/api/expense_categories',
+          beforeSend: function beforeSend(request) {
+            request.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('access_token'));
+          },
+          success: function success(response) {
+            resolve(response);
+          },
+          error: function error(_error3) {
+            reject(_error3);
           }
         });
       });

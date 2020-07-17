@@ -17,9 +17,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Alvin Katapusan</td>
-                                <td> 11/13/97</td>
+                            <tr v-for="(category, index ) in categories" :key="index" >
+                                <td> {{ category.name }}</td>
+                                <td> {{ category.createdat }}</td>
                                 <td>
                                     <div class="dflex justify-content-between">
                                         <button class="btn btn-primary">Edit</button>
@@ -27,26 +27,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Anglica Sto. Domingo</td>
-                                <td>11/13/97</td>
-                                <td>
-                                    <div class="dflex justify-content-between">
-                                        <button class="btn btn-success">Edit</button>
-                                        <button class="btn btn-danger">Delete</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Kataps</td>
-                                <td>11/13/97</td>
-                                <td>
-                                    <div class="dflex justify-content-between">
-                                        <button class="btn btn-primary">Edit</button>
-                                        <button class="btn btn-danger">Delete</button>
-                                    </div>
-                                </td>
-                            </tr>
+                            
                         </tbody>
                     </table>
               </div>
@@ -56,8 +37,19 @@
 
 <script>
     export default {
-        
+        data(){
+            return  {
+                categories: null,
+            }
+        },
+        created(){
+            this.$store.dispatch('retrieveExpenseCategories')
+            .then (response => {
+                this.categories = response
+            })
 
+        }
+          
     }
 </script>
 

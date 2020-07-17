@@ -1,6 +1,5 @@
 <template>
     <div>
-        <!-- <span @click="logout">Sigout my account</span> -->
     </div>
 </template>
 
@@ -8,10 +7,9 @@
     export default {
         created (){
             this.$store.dispatch('removeToken',{
-           
            })
             .then(response => {
-                this.$router.push({ name: 'home' })
+                this.$router.push({ name: 'website' })
             });
         }
     }

@@ -19,5 +19,11 @@ Route::post('/logout','AuthController@logout')->middleware('auth:api');
 //     return $request->user();
 // });
 
+// Route::middleware('auth:api')->group( function(){
+//     Route::resource('categories', 'ExpenseCategories')->namespace('Api');
+// });
 
 
+Route::middleware('auth:api')->namespace('Api')->group(function(){
+    Route::resource('expense_categories', 'ExpenseCategories')->except(['show','edit']);
+});

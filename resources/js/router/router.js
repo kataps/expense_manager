@@ -90,8 +90,7 @@ const Router =  new VueRouter({
 })
 Router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
-      // this route requires auth, check if logged in
-      // if not, redirect to login page.
+        
       if (!store.getters.loggedIn) {
         next({
           path: '/login',
@@ -102,8 +101,6 @@ Router.beforeEach((to, from, next) => {
       }
     }
     else if (to.matched.some(record => !record.meta.requiresAuth)) {
-        // this route only requires uaunthenticated user, check if not logged in
-        // if yes, redirect to cms Dashboard page.
         if (!store.getters.loggedIn) {
             next()
         } else {
